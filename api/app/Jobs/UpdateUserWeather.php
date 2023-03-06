@@ -28,7 +28,7 @@ class UpdateUserWeather implements ShouldQueue
      */
     public function handle(Client $client): void
     {
-        $this->user->weather()->updateOrCreate(
+        $this->user->weather()->updateOrCreate([],
             (array) $client->currentWeather($this->user)
         );
     }

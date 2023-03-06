@@ -9,6 +9,14 @@ const store = useUserStore()
 const { user, loading, error } = storeToRefs(store)
 
 store.find(Number(route.params.id))
+
+window.Echo.channel('weather').listen('.WeatherReportUpdated', (e) => {
+  if (store.user.id !== e.model.user_id) {
+    return
+  }
+
+  store.user.weather = e.model
+});
 </script>
 
 <template>

@@ -8,6 +8,16 @@ const store = useUserStore()
 const { users, loading, error } = storeToRefs(store)
 
 store.fill()
+
+window.Echo.channel('weather').listen('.WeatherReportUpdated', (e) => {
+  let user = store.users.data.find(({ id }) => id === e.model.user_id)
+
+  if (!user) {
+    return
+  }
+
+  user.weather = e.model
+});
 </script>
 
 <template>

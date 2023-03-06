@@ -78,5 +78,6 @@ class UpdateUserWeatherTest extends TestCase
             'wind' => null,
             'pressure' => null,
         ]);
+        $this->assertDatabaseCount('weather_reports', 1);
     }
 }

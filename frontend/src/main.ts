@@ -15,3 +15,21 @@ app.use(createPinia());
 app.use(router);
 
 app.mount("#app");
+
+
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+
+window.Pusher = Pusher;
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'key',
+    cluster: 'mt1',
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    forceTLS: false,
+    encrypted: false,
+    disableStats: true,
+    enabledTransports: ['ws', 'wss'],
+});
