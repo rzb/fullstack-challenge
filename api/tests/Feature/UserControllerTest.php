@@ -25,6 +25,7 @@ class UserControllerTest extends TestCase
                 fn (AssertableJson $json) => $json
                     ->has('data', 10, fn ($json) => $json
                         ->hasAll(
+                            'id',
                             'name',
                             'email',
                             'latitude',
@@ -69,6 +70,7 @@ class UserControllerTest extends TestCase
                 fn (AssertableJson $json) => $json
                     ->whereAll([
                         'data' => [
+                            'id' => $user->id,
                             'name' => $user->name,
                             'email' => $user->email,
                             'latitude' => $user->latitude,
