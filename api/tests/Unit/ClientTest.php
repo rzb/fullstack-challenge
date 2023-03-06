@@ -11,7 +11,10 @@ use Tests\TestCase;
 
 class ClientTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group api
+     */
     public function it_checks_the_current_weather_for_a_user(): void
     {
         $user = User::factory()->make();
