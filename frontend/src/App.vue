@@ -1,18 +1,10 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+import Header from "@/components/Header.vue";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <RouterView />
+	<div class="wrapper">
+    <Header />
+		<RouterView class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12" />
+	</div>
 </template>
-
-<style scoped>
-
-</style>
